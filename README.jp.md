@@ -32,7 +32,7 @@ Package Control を使用することで、新しいバージョンが利用可�
 
 Package Control を使用してインストールするには、次の手順を実行します。
 
-1.Sublime Text 内で、[Command Palette](http://docs.sublimetext.info/ja/sublime-text-3/extensibility/command_palette.html) を開き、`Add Repository` と入力します。コマンドの中に `Package Control:Add Repository` があります。 そのコマンドが強調表示されていない場合は、キーボードまたはマウスを使用して選択します。  フォームが表示されるので、次の URL を入力します。
+1. Sublime Text 内で、[Command Palette](http://docs.sublimetext.info/ja/sublime-text-3/extensibility/command_palette.html) を開き、`Add Repository` と入力します。コマンドの中に `Package Control:Add Repository` があります。 そのコマンドが強調表示されていない場合は、キーボードまたはマウスを使用して選択します。  フォームが表示されるので、次の URL を入力します。
 
 ```
 https://github.com/taky/SublimeLinter-redpen
@@ -40,7 +40,7 @@ https://github.com/taky/SublimeLinter-redpen
 
 1. [Command Palette](http://docs.sublimetext.info/ja/sublime-text-3/extensibility/command_palette.html) を開き、 `install` と入力します。 コマンドの中には `Package Control:Install Package` があります。 その項目が強調表示されていない場合は、キーボードまたはマウスを使用して選択します。 パッケージコントロールが利用可能なプラグインのリストを取得する間、数秒間の時間がかかります。  
 
-1.プラグインリストが表示されたら、 `redpen` と入力します。 エントリの中に `SublimeLinter-redpen` があります。 その項目が強調表示されていない場合は、キーボードまたはマウスを使用して選択します。  
+1. プラグインリストが表示されたら、 `redpen` と入力します。 エントリの中に `SublimeLinter-redpen` があります。 その項目が強調表示されていない場合は、キーボードまたはマウスを使用して選択します。  
 
 ## プラグインの設定
 SublimeLinter の設定に関する一般的な情報は、[Settings](http://sublimelinter.readthedocs.org/ja/latest/settings.html) を参照してください。 一般的な  `linter` 設定の詳細については、[Linter Settings](http://sublimelinter.readthedocs.org/en/latest/linter_settings.html) を参照してください。
@@ -50,11 +50,11 @@ Tool > SublimeLinter> Open User Settings に移動して `conf` オプション�
 ## 参加方法
 改善や修正に貢献したい場合は、以下に従ってください。  
 
-1.リポジトリを folk します。
-1.最新の `master` から作成された別のトピックブランチをハックします。
-1.トピックブランチをコミットしてプッシュします。
-1.プルリクエストを行います。
-1.経過を待ってください。 ;-)  
+1. リポジトリを folk します。
+1. 最新の `master` から作成された別のトピックブランチをハックします。
+1. トピックブランチをコミットしてプッシュします。
+1. プルリクエストを行います。
+1. 経過を待ってください。 ;-)  
 
 変更は次のコーディングガイドラインに従ってください。  
 
