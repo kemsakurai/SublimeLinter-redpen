@@ -27,7 +27,7 @@ class Redpen(Linter):
         """Return the command line to execute."""
         command = [self.executable, '--result-format', 'json', '--format']
         
-        api_version = getattr(SublimeLinter, 'VERSION', 3)
+        api_version = getattr(SublimeLinter.lint, 'VERSION', 3)
         
         if api_version > 3:
             current_syntax = util.get_syntax(self.view)
