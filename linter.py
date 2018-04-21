@@ -4,6 +4,7 @@
 
 """This module exports the RedPen plugin class."""
 
+import SublimeLinter
 from SublimeLinter.lint import Linter, persist, util
 import os.path
 import json
