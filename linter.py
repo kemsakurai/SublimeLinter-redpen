@@ -25,6 +25,14 @@ class Redpen(Linter):
     def cmd(self):
         """Return the command line to execute."""
         command = [self.executable, '--result-format', 'json', '--format']
+        
+        api_version = getattr(SublimeLinter, 'VERSION', 3)
+        
+        if api_version > 3:
+            current_syntax = util.get_syntax(self.view)
+        else:
+            current_syntax = persist.get_syntax(self.view)
+        
         try:
             file_format = {'plain text': 'plain',
                            'markdown': 'markdown',
@@ -32,7 +40,7 @@ class Redpen(Linter):
                            'javaproperties': 'properties',
                            'latex': 'latex',
                            'asciidoc': 'asciidoc',
-                           }[persist.get_syntax(self.view)]
+                           }[current_syntax]
             command.append(file_format)
         except KeyError:
             raise KeyError('Illegal syntax. \'{}\''.format(self.view))
