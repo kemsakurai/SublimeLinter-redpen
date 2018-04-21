@@ -21,14 +21,13 @@ class Redpen(Linter):
     }
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 1.7.0'
+    version_requirement = '>= 1.10.0'
 
     def cmd(self):
         """Return the command line to execute."""
         command = [self.executable, '--result-format', 'json', '--format']
         
         api_version = getattr(SublimeLinter.lint, 'VERSION', 3)
-        
         if api_version > 3:
             current_syntax = util.get_syntax(self.view)
         else:
@@ -47,13 +46,22 @@ class Redpen(Linter):
             raise KeyError('Illegal syntax. \'{}\''.format(self.view))
 
         settings = self.get_view_settings()
-        conf_file_path = settings.get('conf', '')
-        if conf_file_path != '':
+        conf_file_path = settings.get('conf', None)
+        if conf_file_path != None:
             if os.path.exists(conf_file_path):
                 command.append('--conf')
                 command.append(conf_file_path)
             else:
                 persist.printf('ERROR: Config file is not exist. \'{}\''.format(conf_file_path))
+        
+        threshold = settings.get('threshold', "warn")            
+        command.append('--threshold')
+        command.append(threshold)
+        
+        lang = settings.get('lang', None)
+        if lang != None:
+            command.append('--lang')
+            command.append(lang)
         command.append('@')
         return command
 
@@ -79,6 +87,17 @@ class Redpen(Linter):
         else:
             col = None
             line_num = error_json.get("lineNum", None)
-
+        
+        error_level = error_json.get("level", "Warn");
+        if error_level == "Error":
+            error = True
+            warn = None
+        elif error_level == "Warn":
+            error = None
+            warn = True
+        else:
+            # error_level == "Info"
+            error = None
+            warn = True
         return error_json.get("sentence", None), None if line_num is None else line_num - 1, \
-            col, None, True, error_json.get("message", ""), None
+            col, error, warn, error_json.get("message", ""), None
